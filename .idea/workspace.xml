@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="60c87290-b1d7-45a7-a23c-b3750aeb4359" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CaesarCipherProject.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/CryptographerRunner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/CaesarCipher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/Characters.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/Command.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/CommandBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/CommandRunner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/Cryptanalysis.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/FileStatistics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/PrintingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/ReadingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/SearchingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/util/PrintingUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/testFile.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/testFile2.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Jfa2WShbuUwYamqfthrtfOBuwr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="main" />
+      <recent name="main.service" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="60c87290-b1d7-45a7-a23c-b3750aeb4359" name="Changes" comment="" />
+      <created>1672471387584</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1672471387584</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
