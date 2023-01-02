@@ -1,5 +1,7 @@
 package main.service;
 
+import main.util.PrintingUtil;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -17,10 +19,12 @@ public class Command {
     }
 
     public enum Type {
-        ENCRYPT("ENCRYPT"),
-        DECRYPT("DECRYPT"),
-        HELP("HELP"),
-        EXIT("EXIT");
+        ENCRYPT(PrintingUtil.ENCRYPT_COMMAND),
+        DECRYPT(PrintingUtil.DECRYPT_COMMAND),
+        CRYPTANALYSIS(PrintingUtil.CRYPTANALYSIS_COMMAND),
+        HELP(PrintingUtil.HELP_COMMAND),
+        EXIT(PrintingUtil.EXIT_COMMAND),
+        DEFAULT("DEFAULT");
 
         public String name;
 

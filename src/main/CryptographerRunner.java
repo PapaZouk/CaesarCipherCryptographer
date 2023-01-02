@@ -6,6 +6,7 @@ import main.service.CommandRunner;
 import main.service.PrintingService;
 import main.util.PrintingUtil;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 public class CryptographerRunner {
@@ -19,19 +20,14 @@ public class CryptographerRunner {
         while (CONSOLE.hasNext()) {
             String line = CONSOLE.nextLine();
 
-            try {
-                CommandBuilder commandBuilder = new CommandBuilder();
-                CommandRunner commandRunner = new CommandRunner();
-                Command command = commandBuilder.build(line).orElseThrow(NullPointerException::new);
-                commandRunner.run(command);
-
-                if (command.getType().getName().equalsIgnoreCase(PrintingUtil.EXIT)) {
-                    return;
-                }
-
-            } catch (NullPointerException e) {
-
+            if (PrintingUtil.EXIT_COMMAND.equalsIgnoreCase(line)) {
+                return;
             }
+            CommandBuilder commandBuilder = new CommandBuilder();
+            CommandRunner commandRunner = new CommandRunner();
+
+            Optional<Command> command = commandBuilder.build(line);
+            commandRunner.run(command.orElse(new Command(Command.Type.DEFAULT)));
 
         }
 

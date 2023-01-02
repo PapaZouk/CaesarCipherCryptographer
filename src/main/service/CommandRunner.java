@@ -16,9 +16,12 @@ public class CommandRunner {
         EXECUTION_MAP = Map.of(
                 Command.Type.ENCRYPT, this::runEncrypt,
                 Command.Type.DECRYPT, this::runDecrypt,
+                Command.Type.CRYPTANALYSIS, this::runCryptAnalysis,
                 Command.Type.HELP, this::runHelp,
+                Command.Type.DEFAULT, this::runExit,
                 Command.Type.EXIT, this::runExit
         );
+
     }
 
     public void run(final Command command) {
@@ -29,36 +32,37 @@ public class CommandRunner {
                     ));
             commandConsumer.accept(command);
         } catch (NullPointerException e) {
-            System.out.printf(PrintingUtil.UNSUPPORTED_CMD, command.getType());
+            System.err.printf(PrintingUtil.UNSUPPORTED_CMD, command.getType());
         }
     }
 
     private void runExit(Command command) {
-        if (Command.Type.EXIT.getName().equalsIgnoreCase(command.getType().name)) {
-            PrintingService.printClosing();
-        }
+        PrintingService.printClosing();
     }
 
     private void runHelp(Command command) {
-        if (Command.Type.HELP.getName().equalsIgnoreCase(command.getType().name)) {
-            PrintingService.printHelpMenu();
-        }
+        PrintingService.printHelpMenu();
     }
 
     private void runEncrypt(final Command command) {
-        if (Command.Type.ENCRYPT.getName().equalsIgnoreCase(command.getType().getName())) {
-            System.out.println(PrintingUtil.PROVIDE_FILE_NAME);;
-            Path input = ReadingService.readFilePath(CryptographerRunner.CONSOLE.nextLine());
-            System.out.println(PrintingUtil.KEY_TO_ENCRYPT);
-            Integer key = null;
-            try {
-                key = CryptographerRunner.CONSOLE.nextInt();
-            } catch (NumberFormatException e) {
-                System.err.printf(PrintingUtil.INVALID_KEY_FORMAT, key);
-                key = CryptographerRunner.CONSOLE.nextInt();
-            }
-            CaesarCipher.encrypt(key, input);
+        System.out.println(PrintingUtil.PROVIDE_FILE_NAME);
+        Path input =null;
+        try {
+            input = ReadingService.readFilePath(CryptographerRunner.CONSOLE.nextLine());
+        } catch (NumberFormatException e) {
+            System.err.println(PrintingUtil.INVALID_PATH_NAME);
+            return;
         }
+
+        System.out.println(PrintingUtil.KEY_TO_ENCRYPT);
+        Integer key = null;
+        try {
+            key = CryptographerRunner.CONSOLE.nextInt();
+        } catch (NumberFormatException e) {
+            System.err.printf(PrintingUtil.INVALID_KEY_FORMAT, key);
+            return;
+        }
+        CaesarCipher.encrypt(key, input);
     }
 
     private void runDecrypt(final Command command) {
@@ -75,5 +79,9 @@ public class CommandRunner {
             }
             CaesarCipher.decrypt(key, input);
         }
+    }
+
+    private void runCryptAnalysis(Command command) {
+        Cryptanalysis.runCryptanalysis();
     }
 }

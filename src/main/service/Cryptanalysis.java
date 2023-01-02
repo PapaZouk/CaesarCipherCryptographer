@@ -16,6 +16,18 @@ import java.util.stream.Stream;
 
 public class Cryptanalysis {
 
+    public static void runCryptanalysis() {
+        PrintingService.printCryptAnalysisMenu();
+        String option = CryptographerRunner.CONSOLE.nextLine();
+        if (option.equalsIgnoreCase(PrintingUtil.BRUTE_FORCE_COMMAND)) {
+            System.out.println(PrintingUtil.PROVIDE_FILE_NAME);
+            String path = CryptographerRunner.CONSOLE.nextLine();
+            useBruteForce(Path.of(path));
+        } else if (option.equalsIgnoreCase(PrintingUtil.STATISTIC_ANALYSIS)) {
+            //TODO
+        }
+    }
+
     public static void useBruteForce(Path path) {
         try (BufferedReader reader = Files.newBufferedReader(Paths.get(path.toAbsolutePath().toUri()));
              BufferedWriter writer = Files.newBufferedWriter(getOutputPath(path, PrintingUtil.BRUTE_FORCE_FORMAT))) {
@@ -40,6 +52,7 @@ public class Cryptanalysis {
                                 keyCounter.getAndDecrement() - 1);
                         writer.write(compared);
                         writer.flush();
+                        System.out.println(PrintingUtil.EXIT_TO_SEE);
                         return;
                     }
                     keyCounter.incrementAndGet();
@@ -119,6 +132,20 @@ public class Cryptanalysis {
         return Paths.get(source + suffix + extension);
     }
 
+    private enum Type {
+        BRUTE_FORCE(PrintingUtil.BRUTE_FORCE_COMMAND),
+        STATISTIC_ANALYSIS(PrintingUtil.STATISTIC_ANALYSIS);
+
+        public String name;
+
+        Type(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+    }
 
 }
 
