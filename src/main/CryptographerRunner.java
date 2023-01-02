@@ -1,9 +1,6 @@
 package main;
 
-import main.service.Command;
-import main.service.CommandBuilder;
-import main.service.CommandRunner;
-import main.service.PrintingService;
+import main.service.*;
 import main.util.PrintingUtil;
 
 import java.util.Optional;
@@ -17,17 +14,25 @@ public class CryptographerRunner {
 
         PrintingService.intro();
 
-        while (CONSOLE.hasNext()) {
+        while (true) {
             String line = CONSOLE.nextLine();
 
             if (PrintingUtil.EXIT_COMMAND.equalsIgnoreCase(line)) {
+                System.out.println(PrintingUtil.CLOSING);
                 return;
+            } else if ("".equals(line)) {
+                line = CONSOLE.nextLine();
             }
             CommandBuilder commandBuilder = new CommandBuilder();
             CommandRunner commandRunner = new CommandRunner();
 
-            Optional<Command> command = commandBuilder.build(line);
-            commandRunner.run(command.orElse(new Command(Command.Type.DEFAULT)));
+            Command command = null;
+            try {
+                command = commandBuilder.build(line);
+                commandRunner.run(command);
+            } catch (InvalidCommandException e) {
+                PrintingService.printHelpMenu();
+            }
 
         }
 

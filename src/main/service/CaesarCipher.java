@@ -16,7 +16,7 @@ public class CaesarCipher {
     public static void encrypt(Integer key, Path path) {
         try (
                 BufferedReader reader = Files.newBufferedReader(Paths.get(path.toAbsolutePath().toUri()));
-                BufferedWriter writer = Files.newBufferedWriter(getOutputPath(path, PrintingUtil.ENCRYPTED_FORMAT))) {
+                BufferedWriter writer = Files.newBufferedWriter(PathService.getOutputPath(path, PrintingUtil.ENCRYPTED_FORMAT))) {
             String fileContent = ReadingService.readFileContent(reader);
             System.out.printf("%s[%s]%n", PrintingUtil.ENCRYPTING_CONTENT, path.getFileName());
 
@@ -28,21 +28,11 @@ public class CaesarCipher {
 
             writer.write(encrypted);
             writer.flush();
-            System.out.printf("%s[%d]%n%s%n",
-                    PrintingUtil.ENCRYPTION_COMPLETED,
-                    key,
-                    PrintingUtil.EXIT_TO_SEE);;
-
+            System.out.printf("%s[%d]%n", PrintingUtil.ENCRYPTION_COMPLETED, key);
+            System.out.println(PrintingUtil.EXIT_TO_SEE);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println(PrintingUtil.INVALID_PATH_NAME);
         }
-    }
-
-    private static Path getOutputPath(Path path, String suffix) {
-        String fullPath = path.toAbsolutePath().toString();
-        String source = fullPath.substring(0, fullPath.lastIndexOf("."));
-        String extension = fullPath.substring(fullPath.lastIndexOf("."));
-        return Paths.get(source + suffix + extension);
     }
 
     private static String encryptCharacter(String input, Integer key) {
@@ -59,11 +49,11 @@ public class CaesarCipher {
     public static void decrypt(Integer key, Path path) {
         try (
                 BufferedReader reader = Files.newBufferedReader(Paths.get(path.toAbsolutePath().toUri()));
-                BufferedWriter writer = Files.newBufferedWriter(getOutputPath(path, PrintingUtil.DECRYPTED_FORMAT))) {
+                BufferedWriter writer = Files.newBufferedWriter(PathService.getOutputPath(path, PrintingUtil.DECRYPTED_FORMAT))) {
             String content = ReadingService.readFileContent(reader);
 
             System.out.printf("%s[%s]%n",
-                    PrintingUtil.READ_CONTENT,
+                    PrintingUtil.READING_COMPLETED,
                     path.getFileName());
 
             String decrypted = Stream.of(content)
@@ -77,12 +67,10 @@ public class CaesarCipher {
 
             writer.write(decrypted);
             writer.flush();
-            System.out.printf("%s[%d]%n%s%n",
-                    PrintingUtil.DECRYPTION_COMPLETED,
-                    key,
-                    PrintingUtil.EXIT_TO_SEE);
+            System.out.printf("%s[%d]%n", PrintingUtil.DECRYPTION_COMPLETED, key);
+            System.out.println(PrintingUtil.EXIT_TO_SEE);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println(PrintingUtil.INVALID_PATH_NAME);;
         }
     }
 

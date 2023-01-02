@@ -5,57 +5,12 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class FileStatistics {
-    private TreeMap<String, Long> fileStatistics = null;
+    private TreeMap<String, Long> fileStatisticsMap = null;
 
     public FileStatistics() {
-        fileStatistics = new TreeMap<>();
+        fileStatisticsMap = new TreeMap<>();
     }
 
-    public void printFileStatistics() {
-        fileStatistics.forEach((k, v) -> System.out.println("Letter: " + k + ", frequency: " + v));
-    }
-
-    public Map<String, Long> getFileStatistics() {
-        return fileStatistics;
-    }
-
-    public TreeMap<String, Long> getLettersStatistics(String fileContent) {
-        return Stream.of(fileContent)
-                .map(line -> line.split(""))
-                .flatMap(Stream::of)
-                .filter(FileStatistics::isPunctuationMark)
-                .collect(Collectors.groupingBy(
-                        letter -> letter,
-                        TreeMap::new,
-                        Collectors.counting()
-                ));
-    }
-
-    public void collectLettersFrequency(TreeMap<String, Long> lettersStatisticMap) {
-        int size = lettersStatisticMap.size();
-        List<Long> frequency = new ArrayList<>();
-        for (int i = 0; i < size; i++) {
-            frequency.add(getNumberOfOccurrence(lettersStatisticMap, i));
-        }
-
-        for (Map.Entry<String, Long> entry : lettersStatisticMap.entrySet()) {
-            for (Long num : frequency) {
-                if (num.equals(entry.getValue())) {
-                    fileStatistics.put(entry.getKey(), num);
-                    break;
-                }
-            }
-        }
-    }
-
-    private static boolean isPunctuationMark(String letter) {
-        for (String punctuationMark : SearchingService.PUNCTUATION_MARKS) {
-            if (letter.equals(punctuationMark)) {
-                return false;
-            }
-        }
-        return true;
-    }
     private static Long getNumberOfOccurrence(TreeMap<String, Long> lettersStatisticMap, Integer position) {
         return Stream.of(lettersStatisticMap)
                 .map(TreeMap::values)
@@ -66,5 +21,53 @@ public class FileStatistics {
                 .get();
     }
 
+    public void collectLettersFrequency(String fileContent) {
+        TreeMap<String, Long> lettersStatisticMap = getLettersStatistics(fileContent);
+        int size = lettersStatisticMap.size();
+        List<Long> frequency = new ArrayList<>();
+        for (int i = 0; i < size; i++) {
+            frequency.add(getNumberOfOccurrence(lettersStatisticMap, i));
+        }
 
+        for (Map.Entry<String, Long> entry : lettersStatisticMap.entrySet()) {
+            for (Long num : frequency) {
+                if (num.equals(entry.getValue())) {
+                    if (!entry.getKey().equals("\n")) {
+                        fileStatisticsMap.put(entry.getKey(), num);
+                    }
+                    break;
+                }
+            }
+        }
+    }
+
+    public Integer getDecryptionKey(FileStatistics comparatorStatistics) {
+        String encryptedMostFrequentLetter = this.getMostFrequentLetter();
+        String comparedMostFrequentLetter = comparatorStatistics.getMostFrequentLetter();
+
+        int comparedLetterPosition = Characters.ALPHABET.indexOf(comparedMostFrequentLetter);
+        int encryptedLetterPosition = Characters.ALPHABET.indexOf(encryptedMostFrequentLetter);
+
+        return encryptedLetterPosition - comparedLetterPosition;
+    }
+
+    private TreeMap<String, Long> getLettersStatistics(String fileContent) {
+        return Stream.of(fileContent)
+                .map(line -> line.split(""))
+                .flatMap(Stream::of)
+                .filter(SearchingService::isPunctuationMark)
+                .collect(Collectors.groupingBy(
+                        letter -> letter,
+                        TreeMap::new,
+                        Collectors.counting()
+                ));
+    }
+
+    private String getMostFrequentLetter() {
+        return fileStatisticsMap.entrySet().stream()
+                .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
+                .findFirst()
+                .map(Map.Entry::getKey)
+                .get();
+    }
 }

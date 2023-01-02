@@ -44,6 +44,51 @@ public class SearchingService {
             "@", "#", "$", "%", "^", "&", "*", "~", "`", "[", "]", "\\", "/");
 
     public static final List<String> PUNCTUATION_MARKS = List.of(
-            ",", ".", "-", "?", "!", " ", "\"", "’",  "“", "”", ":", ";"
+            ",", ".", "-", "?", "!", " ", "\"", "’",  "“", "”", ":", ";", "\n", "\r"
     );
+
+
+    public static Boolean noSymbols(String item) {
+        String[] split = item.split(" ");
+        for (int i = 0; i < split.length; i++) {
+            for (String symbol : SearchingService.SYMBOLS) {
+                if (split[i].contains(symbol)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public static Boolean containsSyllables(String line) {
+        String[] split = line.split(" ");
+        for (int i = 0; i < split.length; i++) {
+            for (String syllable : SearchingService.SYLLABLES) {
+                if (split[i].contains(syllable)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static Boolean containsWords(String line) {
+        for (String word : SearchingService.WORDS) {
+            if (line.contains(word)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public static boolean isPunctuationMark(String letter) {
+        for (String punctuationMark : SearchingService.PUNCTUATION_MARKS) {
+            if (letter.equals(punctuationMark)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }

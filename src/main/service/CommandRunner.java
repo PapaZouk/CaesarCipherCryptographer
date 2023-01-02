@@ -31,13 +31,14 @@ public class CommandRunner {
                             String.format(PrintingUtil.UNSUPPORTED_CMD, command.getType())
                     ));
             commandConsumer.accept(command);
-        } catch (NullPointerException e) {
-            System.err.printf(PrintingUtil.UNSUPPORTED_CMD, command.getType());
+        } catch (Exception e) {
+            System.err.printf(PrintingUtil.UNSUPPORTED_CMD);
         }
     }
 
     private void runExit(Command command) {
         PrintingService.printClosing();
+        System.exit(0);
     }
 
     private void runHelp(Command command) {
