@@ -38,9 +38,9 @@ public class CaesarCipher {
     private static String encryptCharacter(String input, Integer key) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < input.length(); i++) {
-            int pos = Characters.ALPHABET.indexOf(input.charAt(i));
+            int pos = SearchingService.ALPHABET.indexOf(input.charAt(i));
             int encryptPos = (pos + key) % 85;
-            result.append(Characters.ALPHABET.charAt(encryptPos));
+            result.append(SearchingService.ALPHABET.charAt(encryptPos));
         }
         return result.toString();
     }
@@ -70,20 +70,20 @@ public class CaesarCipher {
             System.out.printf("%s[%d]%n", PrintingUtil.DECRYPTION_COMPLETED, key);
             System.out.println(PrintingUtil.EXIT_TO_SEE);
         } catch (IOException e) {
-            System.err.println(PrintingUtil.INVALID_PATH_NAME);;
+            System.err.println(PrintingUtil.INVALID_PATH_NAME);
         }
     }
 
     public static String decryptCharacter(String item, Integer key) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < item.length(); i++) {
-            int pos = Characters.ALPHABET.indexOf(item.charAt(i));
+            int pos = SearchingService.ALPHABET.indexOf(item.charAt(i));
             int decryptPos = (pos - key) % 85;
 
             if (decryptPos < 0) {
-                decryptPos = Characters.ALPHABET.length() + decryptPos;
+                decryptPos = SearchingService.ALPHABET.length() + decryptPos;
             }
-            result.append(Characters.ALPHABET.charAt(decryptPos));
+            result.append(SearchingService.ALPHABET.charAt(decryptPos));
         }
         return result.toString();
     }

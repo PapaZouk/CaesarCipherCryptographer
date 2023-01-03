@@ -1,7 +1,5 @@
 package main.service;
 
-import java.util.Optional;
-
 public class CommandBuilder {
 
     public Command build(final String line) throws InvalidCommandException {

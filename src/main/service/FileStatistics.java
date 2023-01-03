@@ -45,8 +45,8 @@ public class FileStatistics {
         String encryptedMostFrequentLetter = this.getMostFrequentLetter();
         String comparedMostFrequentLetter = comparatorStatistics.getMostFrequentLetter();
 
-        int comparedLetterPosition = Characters.ALPHABET.indexOf(comparedMostFrequentLetter);
-        int encryptedLetterPosition = Characters.ALPHABET.indexOf(encryptedMostFrequentLetter);
+        int comparedLetterPosition = SearchingService.ALPHABET.indexOf(comparedMostFrequentLetter);
+        int encryptedLetterPosition = SearchingService.ALPHABET.indexOf(encryptedMostFrequentLetter);
 
         return encryptedLetterPosition - comparedLetterPosition;
     }

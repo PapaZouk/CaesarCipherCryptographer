@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -20,7 +19,7 @@ public class Cryptanalysis {
         PrintingService.printCryptAnalysisMenu();
         String option = CryptographerRunner.CONSOLE.nextLine();
         if (option.equalsIgnoreCase(PrintingUtil.BRUTE_FORCE_COMMAND)) {
-            System.out.println(PrintingUtil.PROVIDE_FILE_NAME);
+            System.out.println(PrintingUtil.PROVIDE_ENCRYPTED_FILE);
             String input = CryptographerRunner.CONSOLE.nextLine();
 
             useBruteForce(Path.of(input));
@@ -95,7 +94,7 @@ public class Cryptanalysis {
             }
 
         } catch (IOException e) {
-            System.err.println(PrintingUtil.INVALID_PATH_NAME);;
+            System.err.println(PrintingUtil.INVALID_PATH_NAME);
         }
     }
 

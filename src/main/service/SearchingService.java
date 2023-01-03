@@ -3,7 +3,15 @@ package main.service;
 import java.util.List;
 
 public class SearchingService {
- public static final List<String> SYLLABLES = List.of(
+
+    private SearchingService() {
+        throw new AssertionError();
+    }
+
+    public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz ,.;':\"\n\r!?@#$%^&*()-_[]{}\\|/<>`~" +
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    public static final List<String> SYLLABLES = List.of(
          "ing", "er", "ter", "al", "ed", "es", "es",
             "tion", "re", "oth", "ry", "de", "ver", "ex", "en",
             "di", "bout", "com", "ple", "con", "per", "un", "der",

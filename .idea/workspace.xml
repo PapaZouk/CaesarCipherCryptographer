@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="60c87290-b1d7-45a7-a23c-b3750aeb4359" name="Changes" comment="modify CommandRunner logic and Cryptanalysis run method">
-      <change afterPath="$PROJECT_DIR$/src/main/service/InvalidCommandException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/service/PathService.java" afterDir="false" />
+    <list default="true" id="60c87290-b1d7-45a7-a23c-b3750aeb4359" name="Changes" comment="improves FileStatistics and commandRunner logic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/CryptographerRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/CryptographerRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/service/CaesarCipher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/service/CaesarCipher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/service/Characters.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/service/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/service/Command.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/service/CommandBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/service/CommandBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/service/CommandRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/service/CommandRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/service/Cryptanalysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/service/Cryptanalysis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/service/FileStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/service/FileStatistics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/service/PrintingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/service/PrintingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/service/SearchingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/service/SearchingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/util/PrintingUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/util/PrintingUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/testFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/testFile.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/testFile2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/testFile2.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +78,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672652869433</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="improves FileStatistics and commandRunner logic">
+      <created>1672671621979</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1672671621979</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -100,26 +102,13 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initialize repository" />
     <MESSAGE value="modify CommandRunner logic and Cryptanalysis run method" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify CommandRunner logic and Cryptanalysis run method" />
+    <MESSAGE value="improves FileStatistics and commandRunner logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="improves FileStatistics and commandRunner logic" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/service/FileStatistics.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/service/FileStatistics.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="lettersStatisticMap" language="JAVA" />
+        <watch expression="fileStatisticsMap" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

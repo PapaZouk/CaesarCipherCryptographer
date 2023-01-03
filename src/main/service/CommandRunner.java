@@ -32,7 +32,7 @@ public class CommandRunner {
                     ));
             commandConsumer.accept(command);
         } catch (Exception e) {
-            System.err.printf(PrintingUtil.UNSUPPORTED_CMD);
+            System.err.printf(PrintingUtil.UNSUPPORTED_CMD, command.getType().getName());
         }
     }
 
@@ -47,7 +47,7 @@ public class CommandRunner {
 
     private void runEncrypt(final Command command) {
         System.out.println(PrintingUtil.PROVIDE_FILE_NAME);
-        Path input =null;
+        Path input;
         try {
             input = ReadingService.readFilePath(CryptographerRunner.CONSOLE.nextLine());
         } catch (NumberFormatException e) {

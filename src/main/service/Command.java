@@ -1,11 +1,5 @@
 package main.service;
 
-import main.util.PrintingUtil;
-
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 public class Command {
 
     private Type type;
@@ -30,7 +24,7 @@ public class Command {
         EXIT("5"),
         DEFAULT("DEFAULT");
 
-        public String name;
+        public final String name;
 
         Type(String name) {
             this.name = name;

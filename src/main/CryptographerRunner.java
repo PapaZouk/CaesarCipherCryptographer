@@ -3,7 +3,6 @@ package main;
 import main.service.*;
 import main.util.PrintingUtil;
 
-import java.util.Optional;
 import java.util.Scanner;
 
 public class CryptographerRunner {
