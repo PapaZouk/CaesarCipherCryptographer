@@ -7,8 +7,9 @@ Author: Rafal Papala
 * Definition
 * Used tools and languages
 * Methods used in this project
-
-## Goal
+* 
+<picture><img src="https://user-images.githubusercontent.com/106058501/210584218-c1514df8-49e3-4f49-8c7b-42a5292e1e42.png" alt="Goal" width="30"/></picture> Goal
+--------------------------------
 Caesar Cipher Cryptographer program was made as a final project for CodeGym University course between October 2022 and January 2023.
 The general idea was to use gained knowladge about Java Fundamentals and to write a program that encrypt or decrypt provided file in .txt format
 using Caesar cipher method by providing key number to shifts letters.
