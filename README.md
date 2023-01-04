@@ -37,6 +37,8 @@ This program was build using Intellij IDEA and writen in Java language.
 2. Decryption - same as above, but this time client choose positive integer to decrypt file.
    The output file ends with suffix "_decrypted".
 3. Cryptanalysis - client has to choose on of the following options:
-    A. Brute force method - client provides path to the file on local storage and program is trying all possible keys until he find correct one.
-    B. Statistic analysis - this method gather statistics about frequency of all characters from two files: encrypted file and second file provided by client which content is similar to the first file before encryption. Then program tries to decrypt content by shifting letters by the difference of the letters.
+    * Brute force method - client provides path to the file on local storage and program is trying all possible keys until he find correct one.
+    * Statistic analysis - this method gather statistics about frequency of all characters from two files: encrypted file and second file 
+      provided by client which content is similar to the first file before encryption. Then program tries to decrypt content by shifting letters 
+      by the difference of the letters.
 
