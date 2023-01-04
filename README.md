@@ -6,7 +6,7 @@ Author: Rafal Papala
 * Goal
 * Definition
 * Used tools and languages
-* Methods used in this project
+* Methods
 * 
 <picture><img src="https://user-images.githubusercontent.com/106058501/210584218-c1514df8-49e3-4f49-8c7b-42a5292e1e42.png" alt="Goal" width="30"/></picture> Goal
 --------------------------------
@@ -32,7 +32,7 @@ This program was build using Intellij IDEA and writen in Java language.
   </p>
 </picture>
 
-## Methods used in this project:
+## Methods:
 1. Encryption - client encrypt file by providing path to file on local storage and by giving positive integer to shift letters to the right.
    The output file ends with suffix "_encrypted".
 2. Decryption - same as above, but this time client choose positive integer to decrypt file.
