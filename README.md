@@ -7,7 +7,7 @@ Author: Rafal Papala
 * Definition
 * Used tools and languages
 * Methods
-* 
+  
 <picture><img src="https://user-images.githubusercontent.com/106058501/210584218-c1514df8-49e3-4f49-8c7b-42a5292e1e42.png" alt="Goal" width="30"/></picture> Goal
 --------------------------------
 Caesar Cipher Cryptographer program was made as a final project for CodeGym University course between October 2022 and January 2023.
@@ -24,7 +24,7 @@ using Caesar cipher method by providing key number to shifts letters.
 Source: https://en.wikipedia.org/wiki/Caesar_cipher
 
 ## Used tools and languages
-This program was build using Intellij IDEA and writen in Java language.
+This program was build using Intellij IDEA and writen in Java language 18.0.2 with SDK 18.
 <picture>
   <p>
   <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fpapirus-team%2Fpapirus-apps%2F128%2Fintellij-icon.png&f=1&nofb=1&ipt=2e43a8f182375c8b2d746ae40ca9f55a39d93487840632ac4960f61981351b28&ipo=images" alt="Intellij IDEA" width="30"/>
